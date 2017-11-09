@@ -55,55 +55,20 @@ export const otherRouter = {
     name: 'otherRouter',
     component: Main,
     children: [
-        { path: 'home', title: {i18n: 'home'}, name: 'home_index', component: resolve => { require(['./views/home/home.vue'], resolve); } },
+        { path: 'home', title: { i18n: 'home' }, name: 'home_index', component: resolve => { require(['./views/home/home.vue'], resolve); } },
         { path: 'ownspace', title: '个人中心', name: 'ownspace_index', component: resolve => { require(['./views/own-space/own-space.vue'], resolve); } },
-        { path: 'order/:order_id', title: '订单详情', name: 'order_info', component: resolve => { require(['./views/advanced-router/component/order-info.vue'], resolve); } },  // 用于展示动态路由
-        { path: 'shopping', title: '购物详情', name: 'shopping', component: resolve => { require(['./views/advanced-router/component/shopping-info.vue'], resolve); } },  // 用于展示带参路由
         { path: 'message', title: '消息中心', name: 'message_index', component: resolve => { require(['./views/message/message.vue'], resolve); } }
     ]
 };
 
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
-export const appRouter = [
-    {
-        path: '/access',
-        icon: 'key',
-        name: 'access',
-        title: '权限管理',
-        component: Main,
-        children: [
-            { path: 'index', title: '权限管理', name: 'access_index', component: resolve => { require(['./views/access/access.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/access-test',
-        icon: 'lock-combination',
-        title: '权限测试页',
-        name: 'accesstest',
-        access: 0,
-        component: Main,
-        children: [
-            { path: 'index', title: '权限测试页', name: 'accesstest_index' }
-        ]
-    },
-    {
-        path: '/international',
-        icon: 'earth',
-        title: {i18n: 'international'},
-        name: 'international',
-        component: Main,
-        children: [
-            { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: resolve => { require(['./views/international/international.vue'], resolve); } }
-        ]
-    },
-    {
+export const appRouter = [{
         path: '/component',
         icon: 'social-buffer',
         name: 'component',
         title: '组件',
         component: Main,
-        children: [
-            {
+        children: [{
                 path: 'text-editor',
                 icon: 'compose',
                 name: 'text-editor',
@@ -166,18 +131,6 @@ export const appRouter = [
 
         ]
     },
-    // {
-    //     path: '/charts',
-    //     icon: 'ios-analytics',
-    //     name: 'charts',
-    //     title: '图表',
-    //     component: Main,
-    //     children: [
-    //         { path: 'pie', title: '饼状图', name: 'pie', icon: 'ios-pie', component: resolve => { require('./views/access/access.vue') },
-    //         { path: 'histogram', title: '柱状图', name: 'histogram', icon: 'stats-bars', component: resolve => { require('./views/access/access.vue') }
-
-    //     ]
-    // },
     {
         path: '/tables',
         icon: 'ios-grid-view',
@@ -193,17 +146,6 @@ export const appRouter = [
         ]
     },
     {
-        path: '/advanced-router',
-        icon: 'ios-infinite',
-        name: 'advanced-router',
-        title: '高级路由',
-        component: Main,
-        children: [
-            { path: 'mutative-router', title: '动态路由', name: 'mutative-router', icon: 'link', component: resolve => { require(['./views/advanced-router/mutative-router.vue'], resolve); } },
-            { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: resolve => { require(['./views/advanced-router/argument-page.vue'], resolve); } }
-        ]
-    },
-    {
         path: '/error-page',
         icon: 'android-sad',
         title: '错误页面',
@@ -212,7 +154,17 @@ export const appRouter = [
         children: [
             { path: 'index', title: '错误页面', name: 'errorpage_index', component: resolve => { require(['./views/error_page/error-page.vue'], resolve); } }
         ]
-    }
+    },
+    {
+        path: "/register",
+        icon: "person-stakler",
+        name: 'register',
+        title: '登记用户',
+        component: Main,
+        children: [
+            { path: '', title: '列表页面', name: 'register_list', component: resolve => { require(['./views/register/register_table.vue'], resolve); } }
+        ]
+    },
 ];
 
 // 所有上面定义的路由都要写在下面的routers里
