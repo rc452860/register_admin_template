@@ -162,7 +162,7 @@ export const appRouter = [{
         title: '登记用户',
         component: Main,
         children: [
-            { path: '', title: '列表页面', name: 'register_list', component: resolve => { require(['./views/register/register_table.vue'], resolve); } }
+            { path: '', title: '列表页面', name: 'register_list', component: resolve => { require(['./views/register/register-table.vue'], resolve); } }
         ]
     },
 ];
